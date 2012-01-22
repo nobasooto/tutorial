@@ -15,7 +15,7 @@ class SessionsController < ApplicationController
       render 'new'
     else
 
-      #sign_in user
+      sign_in user
       flash[:success] = "Hi #{user.name}, you have signed in"
       redirect_to user
     end
@@ -26,6 +26,7 @@ class SessionsController < ApplicationController
   def destroy
 
     # called for DELETE
-    @title = "destroy session..."
+    sign_out
+    redirect_to root_path
   end
 end
